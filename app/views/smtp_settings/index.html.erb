@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Smtp Settings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if admin_signed_in? %>
+      <% @smtp_settings.each do |smtp_setting| %>
+        <tr>
+          <td><%= smtp_setting.username %></td>
+          <td><%= link_to 'Show', smtp_setting %></td>
+          <td><%= link_to 'Edit', edit_smtp_setting_path(smtp_setting) %></td>
+          <td><%= link_to 'Destroy', smtp_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% else %>
+      <tr>
+          <% if !current_user.smtp_setting.nil? %>
+            <td><%= @smtp_settings.username %></td>
+            <td><%= link_to 'Show', @smtp_settings %></td>
+            <td><%= link_to 'Edit', edit_smtp_setting_path(@smtp_settings) %></td>
+            <td><%= link_to 'Destroy', @smtp_settings, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if user_signed_in? && current_user.smtp_setting.nil? %>
+  <%= link_to 'New Smtp Setting', new_smtp_setting_path %>
+<% end %>

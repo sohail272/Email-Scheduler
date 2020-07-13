@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<div>
+  Address: <%= @smtp_setting.address %> </br>
+  Port: <%= @smtp_setting.port %> </br>
+  Username: <%= @smtp_setting.username %> </br>
+</div>
+<%= link_to 'Edit', edit_smtp_setting_path(@smtp_setting) %> |
+<%= link_to 'Back', smtp_settings_path %>

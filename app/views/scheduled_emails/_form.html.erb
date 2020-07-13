@@ -1,0 +1,30 @@
+<%= form_with(model: scheduled_email, local: true) do |form| %>
+  <% if scheduled_email.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(scheduled_email.errors.count, "error") %> prohibited this scheduled_email from being saved:</h2>
+
+      <ul>
+      <% scheduled_email.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form.label :send_to %>
+    <%= form.email_field :send_to %>
+
+    <%= form.label :subject %>
+    <%= form.text_field :subject %>
+
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+
+    <%#= form.label :sending_time %>
+    <%#= form.text_field :sending_time %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

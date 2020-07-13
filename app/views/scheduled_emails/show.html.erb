@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+<div>
+  Send to: <%= @scheduled_email.send_to %> </br>
+  Subject: <%= @scheduled_email.subject %> </br>
+  Body: <%= @scheduled_email.body %> </br>
+</div>
+<%= link_to 'Edit', edit_scheduled_email_path(@scheduled_email) %> |
+<%= link_to 'Back', scheduled_emails_path %>
